@@ -1,0 +1,82 @@
+﻿@model GymWebApplication1.Models.Membership
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Membership</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.MembershipName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.MembershipName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.MembershipLastName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.MembershipLastName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.PhoneNumber)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.PhoneNumber)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.MembershipAge)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.MembershipAge)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.MEmail)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.MEmail)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.PackageType)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.PackageType)
+        </dd>
+    </dl>
+    <dt class="col-sm-2">
+        @Html.DisplayNameFor(model => model.Bills)
+    </dt>
+    <dd class="col-sm-10">
+        <table class="table">
+            <tr>
+                <th>Paid Date</th>
+                <th>Due Date</th>
+                <th>Price</th> 
+            </tr>
+            @foreach (var item in Model.Bills)
+            {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.paidDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.dueDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+
+        </tr>
+            }
+        </table>
+    </dd>
+
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.MembershipId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
